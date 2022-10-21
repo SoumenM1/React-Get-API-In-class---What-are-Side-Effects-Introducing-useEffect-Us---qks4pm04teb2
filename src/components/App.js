@@ -18,25 +18,22 @@ import { useEffect , useState } from 'react';
 function App() {
 
   const [data, setData] = useState([]);
+  
 const getCovidData = async () =>{
-
-    try{
-        const res = await fetch('https://jsonplaceholder.typicode.com/users');
-        const actualData = await res.json();
-        // console.log(actualData.statewise[0]);
-        setData(actualData.statewise[0]);
-
-    }catch (err){
-        console.log(err)
+ const getCovidData = async () => {
+    try {
+      const res = await fetch("https://jsonplaceholder.typicode.com/users");
+      const actualData = await res.json();
+      // console.log(actualData.statewise[0]);
+      setData(actualData);
+    } catch (err) {
+      console.log(err);
     }
-    
-}
-    useEffect( () => {
+  };
+  useEffect(() => {
     getCovidData();
-      }, []);
+  }, []);
 
-
- 
 
   return (
   <div className='App'>
